@@ -1,0 +1,58 @@
+<div class="cart-outer-cnt">
+    <div class="breadcrumb">
+        <a routerLink="/dashboard/books">Home</a> / <a href="#">Book(01)</a>
+      </div>
+    
+    <div >
+      <div class="cart-details-container">
+        <!-- Book Details -->
+        <div class="cart-section">
+          <h3>My cart</h3>
+          <div class="book-details">
+            <div class="book-item">
+              <img src="../assets/images/Book1.png" alt="Book Cover" />
+              <div class="book-info">
+                <h4>Title: </h4>
+                <p>Author: </p>
+                <p>Price: Rs.  <del>Rs. 699</del></p>
+                <div class="quantity-update">
+                  <span class="symbol">-</span>
+                  <span class="number-of-books"></span>
+                  <span class="symbol" >+</span>
+                </div>
+              </div>
+              <button class="place-order-button" >Remove</button>
+              <button class="place-order-button">Place Order</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #emptyCart>
+      <p>Your cart is empty.</p>
+    </ng-template>
+  
+    <div class="cart-details-container">
+      <!-- Address Details -->
+      <div class="cart-section" >
+        <h3>Address Details</h3>
+        <div class="address-details" >
+          <p>Name: John Doe</p>
+          <p>Address: 123 Street, City</p>
+          <p>Phone: +1234567890</p>
+          <p>Email: johndoe@gmail.com</p>
+        </div>
+      </div>
+  
+      <!-- Order Summary -->
+      <div class="cart-section">
+        <h3>Order Summary</h3>
+        <div class="order-summary" >
+          <p>Subtotal: Rs. </p>
+          <p>Shipping: Rs. 50.00</p>
+          <p>Total: Rs. </p>
+        </div>
+      </div>
+    </div>
+  </div>
