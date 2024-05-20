@@ -3,34 +3,34 @@
         <a routerLink="/dashboard/books">Home</a> / <a href="#">Book(01)</a>
       </div>
     
-    <div  class="book-details-cnt">
+    <div *ngIf="selectedBook" class="book-details-cnt">
         <div class="book-image-and-options">
             <div class="book-image" >
-               <img src="../assets/images/Book1.png" height="300px" width="220px">
+               <img src="{{selectedBook.bookImage}}" height="300px" width="220px">
             </div>
             <div class="options">
-                <button mat-flat-button class="cart-button" >ADD TO BAG</button>
-                <div  class="quantity-update">
-                    <span class="symbol" >-</span>
-                    <span class="number-of-books"></span>
-                    <span class="symbol">+</span>
+                <button mat-flat-button class="cart-button"  *ngIf="!addedToBag" (click)="addToBag()" >ADD TO BAG</button>
+                <div *ngIf="addedToBag" class="quantity-update">
+                    <span class="symbol" (click)="decreaseCount()" >-</span>
+                    <span class="number-of-books">{{ count }} </span>
+                    <span class="symbol"  (click)="increaseCount()">+</span>
                   </div>
                 
-                <button mat-flat-button class="wishlist-button"> WISHLIST</button>
+                <button mat-flat-button class="wishlist-button"  > WISHLIST</button>
             </div>
         </div>
 
         <div class="book-details">
-            <span><h2>title</h2></span>
-            <span>by </span>
+            <span><h2>{{selectedBook.bookName}}</h2></span>
+            <span>by {{selectedBook.authorName}}</span>
             <div class="rating-quantity">
               <span class="rating">4.5 &#9733;</span>
-              <span>quantity</span>
+              <span>{{selectedBook.quantity}}</span>
             </div>
-            <span><b>Rs.  </b><del>Rs. 699</del></span>
+            <span><b>Rs. {{selectedBook.price}} </b><del>Rs. 699</del></span>
             <hr>
             <p style="margin: 0px;">Book details</p>
-            <span><b>vvhghghg</b></span>
+            <span><b>{{selectedBook.description}}</b></span>
             <hr>
             <span><b>Customer FeedBack</b></span>
             <span class="stars">  &#9733; &#9733; &#9733; &#9733; &#9733;</span>

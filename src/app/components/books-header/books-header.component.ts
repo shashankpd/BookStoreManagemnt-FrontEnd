@@ -8,6 +8,7 @@ import { DataService } from 'src/app/services/http-service/data-service/data.ser
 import { HttpService } from 'src/app/services/http-service/http.service';
 
 import { SEARCH_ICON, PROFILE_ICON, CART_ICON } from 'src/assets/svg-icons';
+import { LoginSignupComponent } from '../login-signup/login-signup.component';
 
 @Component({
   selector: 'app-books-header',
@@ -15,6 +16,9 @@ import { SEARCH_ICON, PROFILE_ICON, CART_ICON } from 'src/assets/svg-icons';
   styleUrls: ['./books-header.component.scss']
 })
 export class BooksHeaderComponent implements OnInit {
+  
+  loginclick: boolean = false;
+  
 
   constructor(private domSanitizer:DomSanitizer,private matIconRegistry:MatIconRegistry,private dialog:MatDialog,private router: Router,private httpService:HttpService,private dataService: DataService,private bookService:BookService)
   {
@@ -27,6 +31,20 @@ export class BooksHeaderComponent implements OnInit {
   ngOnInit(): void {
 
     this.bookService.getApi().subscribe((res:any)=>this.dataService.changeState(res))
+  }
+
+  login() {
+    const dialogRef = this.dialog.open(LoginSignupComponent, { width: '720px', height: '480px' });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+    this.loginclick = !this.loginclick;
+  }
+
+
+  logOut() {
+    localStorage.clear();
+    this.router.navigate(['/dashboard/books']);
   }
 
 }

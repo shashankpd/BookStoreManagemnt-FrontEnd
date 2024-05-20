@@ -12,4 +12,12 @@ export class LoginSignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  login=true;
+  goToLogin(){
+    this.login=true;
+  }
+  goToSignUp(){
+    this.login=false;
+  }
+
 }
