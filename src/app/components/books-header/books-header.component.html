@@ -20,14 +20,14 @@
 </div>
 
 <mat-menu #profileMenu>
-    <span>Welcome</span><br>
-    <span>To access account and manage orders</span>
+    <span class="Welcome">Welcome</span><br>
+    <span class="desc">To access account and manage orders</span>
     <button mat-menu-item class="login-btn" (click)="login()">
-        <span>LOGIN/SIGNUP</span>
+        <span class="login-text">LOGIN/SIGNUP</span>
     </button>
     <button mat-menu-item class="login-btn" (click)="logOut()">Logout</button>
-    <div class="order-icon"> My Orders</div>
-    <div class="heart-icon">&#x2764; Wishlist</div>
+    <div class="order-icon"> My Orders </div>
+    <div class="heart-icon" (click)="wishlist()">&#x2764; Wishlist</div>
 </mat-menu>
 
 <!-- <router-outlet></router-outlet> -->

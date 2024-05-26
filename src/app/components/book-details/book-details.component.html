@@ -1,40 +1,66 @@
 <div class="bookdetails-outer-cnt">
-    <div class="breadcrumb">
-        <a routerLink="/dashboard/books">Home</a> / <a href="#">Book(01)</a>
-      </div>
-    
-    <div *ngIf="selectedBook" class="book-details-cnt">
-        <div class="book-image-and-options">
-            <div class="book-image" >
-               <img src="{{selectedBook.bookImage}}" height="300px" width="220px">
-            </div>
-            <div class="options">
-                <button mat-flat-button class="cart-button"  *ngIf="!addedToBag" (click)="addToBag()" >ADD TO BAG</button>
-                <div *ngIf="addedToBag" class="quantity-update">
-                    <span class="symbol" (click)="decreaseCount()" >-</span>
-                    <span class="number-of-books">{{ count }} </span>
-                    <span class="symbol"  (click)="increaseCount()">+</span>
-                  </div>
-                
-                <button mat-flat-button class="wishlist-button"  > WISHLIST</button>
-            </div>
-        </div>
-
-        <div class="book-details">
-            <span><h2>{{selectedBook.bookName}}</h2></span>
-            <span>by {{selectedBook.authorName}}</span>
-            <div class="rating-quantity">
-              <span class="rating">4.5 &#9733;</span>
-              <span>{{selectedBook.quantity}}</span>
-            </div>
-            <span><b>Rs. {{selectedBook.price}} </b><del>Rs. 699</del></span>
-            <hr>
-            <p style="margin: 0px;">Book details</p>
-            <span><b>{{selectedBook.description}}</b></span>
-            <hr>
-            <span><b>Customer FeedBack</b></span>
-            <span class="stars">  &#9733; &#9733; &#9733; &#9733; &#9733;</span>
-        </div>
-      <!-- Display other book details as needed -->
-    </div>
+  <div class="breadcrumb">
+    <a href="#" routerLink="/dashboard/books">Home</a> / <a>Book(01)</a>
   </div>
+
+  <div class="book-details-container">
+    <div class="book-thumbnails">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYE0peAYNpnYWxNmFhMwvPybvZNZp-LaRoxw&s" class="thumbnail-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6OgzxwxXtlGJ5w7Lf3r0eGc5-OxXgs-EVcw&s" class="thumbnail-image">
+    </div>
+  
+
+<div *ngIf="selectedBook" class="book-details-cnt">
+    <div class="book-image-and-options">
+        <div class="book-image">
+           <img src="{{selectedBook.bookImage}}" height="300px" width="220px">
+        </div>
+        <div class="options">
+            <button mat-flat-button class="cart-button" *ngIf="!addedToBag" (click)="addToBag()">ADD TO BAG</button>
+            <div *ngIf="addedToBag" class="quantity-update">
+                <span class="symbol" (click)="decreaseCount()">-</span>
+                <span class="number-of-books">{{ count }}</span>
+                <span class="symbol" (click)="increaseCount()">+</span>
+              </div>
+            
+              <div *ngIf="selectedBook" class="book-details-cnt">
+                <!-- Other HTML code -->
+                <button mat-flat-button class="wishlist-button" (click)="addToWishlist()" *ngIf="!addedToWishlist">WISHLIST</button>
+                <span *ngIf="addedToWishlist" class="already-in-wishlist">Added</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="book-details">
+        <span><h2 class="book-name">{{selectedBook.bookName}}</h2></span>
+        <span class="author-name">by {{selectedBook.authorName}}</span>
+        <div class="rating-quantity">
+          <span class="rating">4.5 &#9733;</span>
+          <span class="quantity">({{selectedBook.quantity}})</span>
+        </div>
+        <span><b class="price">Rs. {{selectedBook.price}} </b><del class="Delete">  Rs.4000</del></span>
+        <hr>
+        <p class="book-det">Book details</p>
+        <span><b class="description">{{selectedBook.description}}</b></span>
+        <hr>
+        <span><b>Customer FeedBack</b></span>
+        <div class="customer-feedback">
+          <span class="stars">Overall rating</span> <br>
+          <span class="stars"> &#9733; &#9733; &#9733; &#9733; &#9733;</span>
+          <textarea placeholder="Write your review"></textarea>
+          <button class="submit-review">Submit</button>
+        </div>   
+        <div class="reviews">
+          <div class="review">
+            <span class="reviewer">Aniket Chile</span> 
+            <span class="review-stars">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+            <p>Good product. Even though the translation could have been better, Chanakya's 
+              neeti are thought provoking. Chanakya has written on many different topics
+               and his writings are succinct.</p>
+          </div>
+        </div>
+      </div>
+  <!-- Display other book details as needed -->
+  
+</div>
+</div>

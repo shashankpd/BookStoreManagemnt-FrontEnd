@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { BookObj } from 'src/assets/booksInterface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
   private booksList = new BehaviorSubject<BookObj[]>([]);
   currentBookList = this.booksList.asObservable();
 
-  changeState(value: BookObj[]) {
-    this.booksList.next(value);
-  }
+  private searchString = new BehaviorSubject<string>('');
+  currSearchString = this.searchString.asObservable();
 
   private cartItems: { [bookId: number]: BookObj & { quantity: number } } = {};
   
@@ -22,12 +20,13 @@ export class DataService {
     return this.cartItemsSubject.asObservable();
   }
 
+
   private cartItemCount = new BehaviorSubject<number>(0);
   getCartItemCount(): Observable<number> {
     return this.cartItemCount.asObservable();
   }
- 
-  
+
+
   clearCart() {
     this.cartItems = {};
     this.updateCartItemsSubject();
@@ -90,7 +89,41 @@ export class DataService {
     this.cartItemsSubject.next(cartItemsArray);
     this.cartItemCount.next(cartItemsArray.length);
   }
+
+  changeState(value: BookObj[]) {
+    this.booksList.next(value);
+  }
+
+  updateSearchString(state: string) {
+    this.searchString.next(state);
+  }
+
+ //////wishlist//////////
+ private wishlistBooks = new BehaviorSubject<BookObj[]>([]);
+  currWishlistBook = this.wishlistBooks.asObservable();
+
+  updateWishlistBooks(book: BookObj) {
+    const currentWishlist = this.wishlistBooks.getValue();
+    this.wishlistBooks.next([...currentWishlist, book]);
+  }
+
   
 
-  constructor() { }
+// private wishlistBooks = new BehaviorSubject<BookObj[]>([]);
+// currWishlistBook = this.wishlistBooks.asObservable();
+
+// updateWishlistBooks(books: BookObj[]) {
+//   this.wishlistBooks.next(books);
+// }
+
+  // addToWishlist(book: any) {
+  //   this.wishlistBooks.push(book);
+  // }
+
+  // removeFromWishlist(bookId: number): Observable<void> {
+  //   this.wishlistBooks = this.wishlistBooks.filter(book => book.bookId !== bookId);
+  //   return of();
+  // }
+
+  constructor() {}
 }

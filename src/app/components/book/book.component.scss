@@ -33,6 +33,19 @@
     /*opacity: 1;*/
 }
 
+.book-title{
+    top: 327px;
+left: 452px;
+width: 180px;
+height: 19px;
+/* UI Properties */
+text-align: left;
+font: normal normal normal 14px/19px Roboto;
+letter-spacing: 0px;
+color: #0A0102;
+opacity: 1;
+}
+
 .book-details {
     display: flex;
     flex-direction: column;
@@ -44,10 +57,72 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
+    
 }
 
 .book-rating {
     border: 1px solid black;
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
+}
+.book-author{
+    top: 349px;
+left: 191px;
+width: 69px;
+height: 13px;
+/* UI Properties */
+text-align: left;
+font: normal normal normal 10px/13px Roboto;
+letter-spacing: 0px;
+color: #878787;
+opacity: 1;
+}
+
+.star{
+    top: 371px;
+left: 213px;
+width: 8px;
+height: 7px;
+/* UI Properties */
+background: #FFFFFF 0% 0% no-repeat padding-box;
+opacity: 1;
+}
+
+.delete{
+    top: 691px;
+left: 505px;
+width: 36px;
+height: 13px;
+/* UI Properties */
+text-align: left;
+text-decoration: line-through;
+font: normal normal normal 10px/13px Roboto;
+letter-spacing: 0px;
+color: #878787;
+opacity: 1;
+}
+
+.book-price{
+    top: 388px;
+left: 191px;
+width: 48px;
+height: 16px;
+text-align: left;
+font: normal normal bold 12px/16px Roboto;
+letter-spacing: 0px;
+color: #0A0102;
+opacity: 1;
+}
+
+.quantity{
+    top: 367px;
+left: 489px;
+width: 18px;
+height: 13px;
+/* UI Properties */
+text-align: left;
+font: normal normal normal 10px/13px Roboto;
+letter-spacing: 0px;
+color: #878787;
+opacity: 1;
 }

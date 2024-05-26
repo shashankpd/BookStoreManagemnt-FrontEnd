@@ -16,4 +16,6 @@ export class UserService {
   signupApi(data: any) {
     return this.httpService.loginSignUpApiCall(data, '/User');
   }
+
+  
 }

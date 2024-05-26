@@ -7,7 +7,7 @@ padding: 10px 270px;
 }
 
 .breadcrumb a {
-color: #a80000;
+color: black;
 text-decoration: none;
 margin-right: 5px;
 }
@@ -20,6 +20,7 @@ text-decoration: underline;
 display: flex;
 flex-direction: row;
 gap: 490px;
+margin-left: 350px;
 }
 
 .cart-details-container {
@@ -37,9 +38,19 @@ gap: 490px;
   padding: 10px;
   margin-top: 20px;
 }
-.del {
+.delt {
+  top: 239px;
+  left: 389px;
+  width: 32px;
+  height: 11px;
+  /* UI Properties */
+  text-align: left;
   text-decoration: line-through;
-}
+  font: normal normal normal 12px/15px Lato;
+  letter-spacing: 0px;
+  color: #9D9D9D;
+  opacity: 1;}
+
 .loc-icon-cnt{
   padding: 5px;
   height: 18%;
@@ -68,13 +79,13 @@ gap: 490px;
 }
 .place-order-button{
   background-color: #007bff;
-  margin-top: 109px;
+  margin-top: 50px;
   padding: 5px;
   border: none;
   width: 115px;
   height: 40px;
   cursor: pointer;
-  margin-right: 10px;
+  margin-left: 1010px;
 
 }
 
@@ -88,7 +99,7 @@ gap: 490px;
   border: 1px solid black;
   display: flex;
   justify-content: center;
-  height: 24px; 
+  height: 21px; 
   width: 40px; 
   padding-top: 3px;
 }
@@ -133,4 +144,59 @@ display: flex;
 flex-direction: row;
 gap:10px;
 margin-top: 5px;
+}
+
+.Title{
+  top: 188px;
+left: 316px;
+width: 200px;
+height: 17px;
+/* UI Properties */
+text-align: left;
+font: normal normal normal 17px/20px Lato;
+letter-spacing: 0px;
+color: #0A0102;
+opacity: 1;
+}
+
+.author-name
+{
+  top: 213px;
+left: 320px;
+width: 63px;
+height: 12px;
+/* UI Properties */
+text-align: left;
+font: normal normal normal 10px/12px Lato;
+letter-spacing: 0px;
+color: #9D9D9D;
+opacity: 1;
+}
+
+.price{
+  top: 235px;
+left: 320px;
+width: 120px;
+height: 18px;
+/* UI Properties */
+text-align: left;
+font: normal normal bold 15px/18px Lato;
+letter-spacing: 0px;
+color: #0A0102;
+opacity: 1;
+}
+
+.remove{
+  top: 289px;
+left: 442px;
+width: 42px;
+height: 15px;
+/* UI Properties */
+text-align: left;
+font: normal normal normal 12px/15px Lato;
+letter-spacing: 0px;
+color: #0A0102;
+opacity: 1;
+border: none;
+background: none;
 }

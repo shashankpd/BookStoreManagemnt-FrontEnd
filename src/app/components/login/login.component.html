@@ -1,6 +1,5 @@
 <form class="container" [formGroup]="loginForm">
 
-    <h1>User-Login</h1>
     <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput placeholder="Enter your email" formControlName="email" >
@@ -17,6 +16,8 @@
             <mat-error *ngIf="loginControls['password']?.hasError('minlength')">Minimum length is required(6)</mat-error>
         </mat-form-field>
         <a href="">Forgot Password</a>
+
+        
         
     </div>
 

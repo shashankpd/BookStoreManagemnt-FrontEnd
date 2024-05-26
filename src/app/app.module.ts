@@ -26,6 +26,8 @@ import { LoginSignupComponent } from './components/login-signup/login-signup.com
 import { BooksContainerComponent } from './components/books-container/books-container.component';
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { WishlistComponent } from './components/wishlist/wishlist/wishlist.component';
+import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { SignupComponent } from './components/signup/signup.component';
     LoginSignupComponent,
     BooksContainerComponent,
     DashboardComponent,
-    SignupComponent
+    SignupComponent,
+    WishlistComponent,
+    CustomerDetailsComponent
   ],
   imports: [
     BrowserModule,

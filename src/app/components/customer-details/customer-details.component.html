@@ -1,0 +1,67 @@
+<div class="customer-details">
+    <div class="header">
+        <button class="btn btn-secondary add-address-btn" (click)="toggleAddressForm()">Add New Address</button>
+    </div>
+    <div *ngFor="let add of addresses" class="first-display" >
+        {{add.name}}
+        {{add.UserPhone}}
+        {{add.Address}}
+    
+        <!-- <button (click)="editAddress(add)">edit</button><button (click)="deleteAddress(add)">delete</button><button (click)="onContinue(add)">continue</button> -->
+      </div>
+    <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <span *ngIf="!showAddressForm" class="input-value">{{ customerForm.get('name')?.value }}</span>
+          <input id="fullName" formControlName="name" type="text" *ngIf="showAddressForm" />
+        </div>
+        <div class="form-group">
+          <label for="mobileNumber">Mobile Number</label>
+          <span *ngIf="!showAddressForm" class="input-value">{{ customerForm.get('mobileNumber')?.value }}</span>
+          <input id="mobileNumber" formControlName="mobileNumber" type="text" *ngIf="showAddressForm" />
+        </div>
+      </div>
+      <!-- Edit and Delete buttons -->
+      <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="toggleAddressForm(true)">Edit</button>
+        <!-- <button type="button" class="btn btn-danger" (click)="deleteAddress()">Delete</button> -->
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <span *ngIf="!showAddressForm" class="input-value">{{ customerForm.get('address')?.value }}</span>
+        <textarea id="address" formControlName="address" *ngIf="showAddressForm"></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city">City/Town</label>
+          <span *ngIf="!showAddressForm" class="input-value">{{ customerForm.get('city')?.value }}</span>
+          <input id="city" formControlName="city" type="text" *ngIf="showAddressForm" />
+        </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <span *ngIf="!showAddressForm" class="input-value">{{ customerForm.get('state')?.value }}</span>
+          <input id="state" formControlName="state" type="text" *ngIf="showAddressForm" />
+        </div>
+      </div>
+      <div class="form-group">
+    <label>Type</label>
+    <span *ngIf="!showAddressForm" class="input-value">{{ getTypeDisplayValue() }}</span>
+    <div class="radio-group" *ngIf="showAddressForm">
+      <label>
+        <input type="radio" formControlName="type" value="0" (click)="updateTypeValue('0')" /> Home
+      </label>
+      <label>
+        <input type="radio" formControlName="type" value="1" (click)="updateTypeValue('1')" /> Work
+      </label>
+      <label>
+        <input type="radio" formControlName="type" value="2" (click)="updateTypeValue('2')" /> Other
+      </label>
+    </div>
+  </div>
+  
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary continue-btn">Continue</button>
+      </div>
+    </form>
+  </div>
